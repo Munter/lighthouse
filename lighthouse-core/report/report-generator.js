@@ -5,8 +5,6 @@
  */
 'use strict';
 
-const htmlReportAssets = require('./html/html-report-assets');
-
 class ReportGenerator {
   /**
    * Replaces all the specified strings in source without serial replacements.
@@ -33,6 +31,8 @@ class ReportGenerator {
    * @return {string}
    */
   static generateReportHtml(lhr) {
+    const htmlReportAssets = require('./html/html-report-assets');
+
     const sanitizedJson = JSON.stringify(lhr)
       .replace(/</g, '\\u003c') // replaces opening script tags
       .replace(/\u2028/g, '\\u2028') // replaces line separators ()
